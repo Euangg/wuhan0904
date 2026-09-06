@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bd4aaqkjcocj6"]
+
+[ext_resource type="Script" uid="uid://m3bw84loxi03" path="res://0_util/global.gd" id="1_x7vvt"]
+
+[node name="Global" type="Node" unique_id=1597047337]
+script = ExtResource("1_x7vvt")
+
+[node name="TimerStun" type="Timer" parent="." unique_id=533335912]
+unique_name_in_owner = true
+wait_time = 0.2
+one_shot = true
+ignore_time_scale = true
+
+[connection signal="timeout" from="TimerStun" to="." method="_on_timer_stun_timeout"]

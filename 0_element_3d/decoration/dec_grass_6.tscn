@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dwwcictfcmajj"]
+
+[ext_resource type="Texture2D" uid="uid://cavpmtut8kw4l" path="res://0_element_3d/decoration/plants.png" id="1_f6jrt"]
+
+[node name="DecStone" type="Node3D" unique_id=454279454]
+
+[node name="Hybrid2D3DSprite" type="Hybrid2D3DSprite" parent="." unique_id=881499809]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9780688, 0)
+texture = ExtResource("1_f6jrt")
+region_enabled = true
+region_rect = Rect2(545, 815, 239, 190)

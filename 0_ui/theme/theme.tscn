@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://gkabh7icruyr"]
+
+[ext_resource type="Script" uid="uid://cex0ikwk13ecl" path="res://0_ui/theme/theme.gd" id="1_4euet"]
+[ext_resource type="Texture2D" uid="uid://cw81i7mtp0ycb" path="res://0_ui/theme/SelectBack_01.png" id="2_jokyh"]
+[ext_resource type="Texture2D" uid="uid://b7r3ruracx8x7" path="res://0_ui/theme/SelectBack_02.png" id="3_lgvji"]
+[ext_resource type="Texture2D" uid="uid://trb2akrd1w4o" path="res://0_ui/theme/Start_01.png" id="4_lgvji"]
+[ext_resource type="Texture2D" uid="uid://c7n4b0qc788ac" path="res://0_ui/theme/Story_01.png" id="5_dv3mi"]
+[ext_resource type="Texture2D" uid="uid://cm0jhynts6bxi" path="res://0_ui/theme/Setting_01.png" id="6_w0df1"]
+[ext_resource type="Texture2D" uid="uid://c7w7sjsysm4bt" path="res://0_ui/theme/Exit_01.png" id="7_qoeny"]
+[ext_resource type="Texture2D" uid="uid://f2a1tavokjcf" path="res://0_ui/theme/logo.png" id="8_uupoo"]
+
+[sub_resource type="Animation" id="Animation_tmm7h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_jokyh")]
+}
+
+[sub_resource type="Animation" id="Animation_i2imb"]
+resource_name = "idle"
+length = 0.19999999999999998
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Back:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_jokyh"), ExtResource("3_lgvji")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2dvm"]
+_data = {
+&"RESET": SubResource("Animation_tmm7h"),
+&"idle": SubResource("Animation_i2imb")
+}
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dv3mi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w0df1"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qoeny"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uupoo"]
+
+[node name="Theme" type="Control" unique_id=1439887370]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_4euet")
+
+[node name="Back" type="Sprite2D" parent="." unique_id=1385136211]
+texture = ExtResource("2_jokyh")
+centered = false
+
+[node name="ApBack" type="AnimationPlayer" parent="." unique_id=1898550561]
+libraries/ = SubResource("AnimationLibrary_q2dvm")
+autoplay = &"idle"
+
+[node name="Start" type="Sprite2D" parent="." unique_id=1931934337]
+unique_name_in_owner = true
+texture = ExtResource("4_lgvji")
+centered = false
+
+[node name="ButtonStart" type="Button" parent="Start" unique_id=1825053023]
+offset_left = 1008.00006
+offset_top = 429.00003
+offset_right = 1720.0
+offset_bottom = 579.0
+rotation = 0.23911011
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dv3mi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0df1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qoeny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uupoo")
+
+[node name="Story" type="Sprite2D" parent="." unique_id=195619926]
+unique_name_in_owner = true
+texture = ExtResource("5_dv3mi")
+centered = false
+
+[node name="ButtonStory" type="Button" parent="Story" unique_id=2045263537]
+offset_left = 964.0001
+offset_top = 587.00006
+offset_right = 1676.0
+offset_bottom = 737.00006
+rotation = 0.23911011
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dv3mi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0df1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qoeny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uupoo")
+
+[node name="Setting" type="Sprite2D" parent="." unique_id=1123510033]
+unique_name_in_owner = true
+position = Vector2(0, -5)
+texture = ExtResource("6_w0df1")
+centered = false
+
+[node name="ButtonSetting" type="Button" parent="Setting" unique_id=1023675796]
+offset_left = 1438.7617
+offset_top = 199.03287
+offset_right = 1925.6185
+offset_bottom = 381.80048
+rotation = 0.23911011
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dv3mi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0df1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qoeny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uupoo")
+
+[node name="Exit" type="Sprite2D" parent="." unique_id=1028255481]
+unique_name_in_owner = true
+texture = ExtResource("7_qoeny")
+centered = false
+
+[node name="ButtonExit" type="Button" parent="Exit" unique_id=383416320]
+offset_left = 930.00006
+offset_top = 750.0
+offset_right = 1642.0
+offset_bottom = 900.0
+rotation = 0.23911011
+theme_override_styles/normal = SubResource("StyleBoxEmpty_dv3mi")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_w0df1")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_qoeny")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_uupoo")
+
+[node name="Logo" type="Sprite2D" parent="." unique_id=541930039]
+position = Vector2(5, 0)
+texture = ExtResource("8_uupoo")
+centered = false
+
+[connection signal="button_down" from="Start/ButtonStart" to="." method="_on_button_start_button_down"]
+[connection signal="mouse_entered" from="Start/ButtonStart" to="." method="_on_area_start_mouse_entered"]
+[connection signal="mouse_exited" from="Start/ButtonStart" to="." method="_on_area_start_mouse_exited"]
+[connection signal="button_down" from="Story/ButtonStory" to="." method="_on_button_story_button_down"]
+[connection signal="mouse_entered" from="Story/ButtonStory" to="." method="_on_area_story_mouse_entered"]
+[connection signal="mouse_exited" from="Story/ButtonStory" to="." method="_on_area_story_mouse_exited"]
+[connection signal="button_down" from="Setting/ButtonSetting" to="." method="_on_button_setting_button_down"]
+[connection signal="mouse_entered" from="Setting/ButtonSetting" to="." method="_on_area_setting_mouse_entered"]
+[connection signal="mouse_exited" from="Setting/ButtonSetting" to="." method="_on_area_setting_mouse_exited"]
+[connection signal="button_down" from="Exit/ButtonExit" to="." method="_on_button_exit_button_down"]
+[connection signal="mouse_entered" from="Exit/ButtonExit" to="." method="_on_area_exit_mouse_entered"]
+[connection signal="mouse_exited" from="Exit/ButtonExit" to="." method="_on_area_exit_mouse_exited"]

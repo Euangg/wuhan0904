@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dkxnh2rceb65d"]
+
+[ext_resource type="PackedScene" uid="uid://c33qy6gtn75br" path="res://addons/sound_engine/sfx.tscn" id="1_yobfv"]
+[ext_resource type="AudioStream" uid="uid://bfuewgprhurvu" path="res://0_sound/拉粑粑_01.wav" id="2_yobfv"]
+
+[node name="SfxWc" unique_id=880360423 instance=ExtResource("1_yobfv")]
+stream = ExtResource("2_yobfv")
+volume_db = 5.0
+pitch_scale = 0.8

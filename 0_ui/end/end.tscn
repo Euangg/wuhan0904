@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dxd8a0pvybbu"]
+
+[ext_resource type="Script" uid="uid://b8t2nfcwponmk" path="res://0_ui/end/end.gd" id="1_1ehak"]
+[ext_resource type="Texture2D" uid="uid://cl0tgqlhn4s7d" path="res://0_ui/end/57373febd07127167da84e48f0cbb98f.png" id="1_7ub2g"]
+[ext_resource type="AudioStream" uid="uid://cof6ttkiex3k8" path="res://0_ui/end/end.wav" id="3_damlh"]
+
+[node name="End" type="Control" unique_id=385280866]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ehak")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=80682999]
+unique_name_in_owner = true
+texture = ExtResource("1_7ub2g")
+centered = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=457426383]
+stream = ExtResource("3_damlh")
+autoplay = true

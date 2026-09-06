@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://ceogoh04styvy"]
+
+[ext_resource type="Texture2D" uid="uid://ds72dtxstgbo" path="res://0_element_3d/carrot_grow.png" id="1_4x5m6"]
+[ext_resource type="Script" uid="uid://dd5f66af7e5nd" path="res://0_element_3d/seed.gd" id="1_oistj"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_vkqoe"]
+radius = 5.0
+
+[node name="Seed" type="CharacterBody3D" unique_id=1279030370]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+collision_layer = 0
+script = ExtResource("1_oistj")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=474309708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.9674983, 0)
+shape = SubResource("SphereShape3D_vkqoe")
+
+[node name="Hybrid2D3DSprite" type="Hybrid2D3DSprite" parent="." unique_id=1202970576]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.710919, 0)
+texture = ExtResource("1_4x5m6")
+hframes = 4

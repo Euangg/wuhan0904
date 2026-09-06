@@ -1,0 +1,618 @@
+[gd_scene format=3 uid="uid://dt518c6w5c4j5"]
+
+[ext_resource type="Script" uid="uid://7ab7i3wcmjev" path="res://0_player_3d/player_3d.gd" id="1_emdsd"]
+[ext_resource type="Texture2D" uid="uid://chu8v75672pk4" path="res://0_player_3d/RabbitFrame_01.png" id="2_735vi"]
+[ext_resource type="Texture2D" uid="uid://bc2lxry7kqfsk" path="res://0_player_3d/AttentionFrame.png" id="3_d1nk7"]
+[ext_resource type="Texture2D" uid="uid://xu7tgqtstpgi" path="res://0_player_3d/Frame_carrot.png" id="4_735vi"]
+[ext_resource type="AudioStream" uid="uid://bkcwv0simuw6r" path="res://0_sound/拉粑粑_02.wav" id="5_6kt6m"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vkqoe"]
+height = 13.452393
+radius = 6.3632813
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_co6qv"]
+height = 14.253052
+radius = 6.8867188
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkqoe"]
+size = Vector3(6.584, 17.448, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_co6qv"]
+size = Vector3(10.337021, 14.091309, 1)
+
+[sub_resource type="Animation" id="Animation_d1nk7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteAttention:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_735vi"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteAttention:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rsnye"]
+_data = {
+&"RESET": SubResource("Animation_d1nk7"),
+&"idle": SubResource("Animation_735vi")
+}
+
+[sub_resource type="Animation" id="Animation_rsnye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/BoxCarrot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 1.5707964)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/BoxCarrot:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/BoxCarrot:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/BoxCarrot/SpriteCarrot:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, -1.5707964)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Pivot/HitboxBite:monitoring")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Pivot/SpriteBody:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_meevp"]
+resource_name = "attack"
+length = 0.4
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [8]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/BoxCarrot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.39, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 0.045448024),
+"update": 0,
+"values": [Vector3(0, 0, 1.5707964), Vector3(0, 0, -1.5707964), Vector3(0, 0, -1.5707964), Vector3(0, 0, 1.5707964)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/BoxCarrot:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/BoxCarrot:monitorable")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Pivot/BoxCarrot/SpriteCarrot:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.39, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 0.03467406),
+"update": 0,
+"values": [Vector3(0, 0, -1.5707964), Vector3(0, 0, -2.0207474), Vector3(0, 0, -2.0207474), Vector3(0, 0, -1.5707964)]
+}
+
+[sub_resource type="Animation" id="Animation_amyd3"]
+resource_name = "bite"
+length = 0.4
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [12]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/HitboxBite:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"bite_failed"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/SpriteBody:modulate")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.35, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 0.9659363),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0, 0.7019608, 1, 1), Color(0, 0.7019608, 1, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d1vcx"]
+resource_name = "bite_res"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [13, 14]
+}
+
+[sub_resource type="Animation" id="Animation_rc6aj"]
+resource_name = "die"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_4ls4k"]
+resource_name = "drag_1"
+length = 0.1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [5, 4]
+}
+
+[sub_resource type="Animation" id="Animation_x52jp"]
+resource_name = "drag_start"
+length = 0.001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+
+[sub_resource type="Animation" id="Animation_np7y2"]
+resource_name = "eat"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [24, 25]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"play_sfx_eat"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_4cml3"]
+resource_name = "fall"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_pux5e"]
+resource_name = "hurt"
+length = 0.001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [16, 17]
+}
+
+[sub_resource type="Animation" id="Animation_yds3a"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
+[sub_resource type="Animation" id="Animation_4l6ov"]
+resource_name = "rise"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [32, 33]
+}
+
+[sub_resource type="Animation" id="Animation_tcbih"]
+resource_name = "shit"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [20, 21]
+}
+
+[sub_resource type="Animation" id="Animation_ayis2"]
+resource_name = "stun"
+length = 0.6
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_u8fs3"]
+resource_name = "walk"
+length = 0.3
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/SpriteBody:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [36, 37, 38]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4l6ov"]
+_data = {
+&"RESET": SubResource("Animation_rsnye"),
+&"attack": SubResource("Animation_meevp"),
+&"bite": SubResource("Animation_amyd3"),
+&"bite_res": SubResource("Animation_d1vcx"),
+&"die": SubResource("Animation_rc6aj"),
+&"drag_1": SubResource("Animation_4ls4k"),
+&"drag_start": SubResource("Animation_x52jp"),
+&"eat": SubResource("Animation_np7y2"),
+&"fall": SubResource("Animation_4cml3"),
+&"hurt": SubResource("Animation_pux5e"),
+&"idle": SubResource("Animation_yds3a"),
+&"rise": SubResource("Animation_4l6ov"),
+&"shit": SubResource("Animation_tcbih"),
+&"stun": SubResource("Animation_ayis2"),
+&"walk": SubResource("Animation_u8fs3")
+}
+
+[node name="Player3d" type="CharacterBody3D" unique_id=230906429]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+collision_layer = 2
+script = ExtResource("1_emdsd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1844144173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7363763, 0)
+shape = SubResource("CylinderShape3D_vkqoe")
+
+[node name="Pivot" type="Node3D" parent="." unique_id=1301583386]
+unique_name_in_owner = true
+
+[node name="SpriteBody" type="Hybrid2D3DSprite" parent="Pivot" unique_id=1788096931]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.822777, 0)
+flip_h = true
+billboard = 0
+alpha_scissor_threshold = 0.328
+texture = ExtResource("2_735vi")
+hframes = 4
+vframes = 10
+
+[node name="SpriteAttention" type="Hybrid2D3DSprite" parent="Pivot" unique_id=270767353]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.524193, 0)
+texture = ExtResource("3_d1nk7")
+hframes = 2
+vframes = 2
+
+[node name="Sprite3D" type="Hybrid2D3DSprite" parent="Pivot/SpriteAttention" unique_id=1742831537]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.359, 0.1)
+texture = ExtResource("3_d1nk7")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="AreaDetectCarrot" type="Area3D" parent="Pivot" unique_id=1581257125]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/AreaDetectCarrot" unique_id=1024423376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.4710975, 7.298649, 0)
+shape = SubResource("CylinderShape3D_co6qv")
+
+[node name="Hurtbox" type="Area3D" parent="Pivot" unique_id=1101392804]
+unique_name_in_owner = true
+collision_layer = 256
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Hurtbox" unique_id=973121983]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.7363763, 0)
+shape = SubResource("CylinderShape3D_vkqoe")
+
+[node name="BoxCarrot" type="Area3D" parent="Pivot" unique_id=701228817]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 5.5814953, 0)
+collision_layer = 4096
+collision_mask = 256
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/BoxCarrot" unique_id=173495934]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.765, 0)
+shape = SubResource("BoxShape3D_vkqoe")
+
+[node name="SpriteCarrot" type="Hybrid2D3DSprite" parent="Pivot/BoxCarrot" unique_id=1430537729]
+unique_name_in_owner = true
+transform = Transform3D(-4.3711385e-08, 0.9999999, 0, -0.9999999, -4.3711385e-08, 0, 0, 0, 1, -1.352, 9.381, 0.1)
+billboard = 0
+alpha_scissor_threshold = 0.3
+texture = ExtResource("4_735vi")
+hframes = 4
+frame = 1
+
+[node name="HitboxBite" type="Area3D" parent="Pivot" unique_id=1899039875]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 4096
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/HitboxBite" unique_id=1312786250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.6685104, 6.5456543, 0)
+shape = SubResource("BoxShape3D_co6qv")
+
+[node name="APAttention" type="AnimationPlayer" parent="." unique_id=1473815810]
+libraries/ = SubResource("AnimationLibrary_rsnye")
+autoplay = &"idle"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1916904621]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_4l6ov")
+
+[node name="TimerBite" type="Timer" parent="." unique_id=1132473870]
+unique_name_in_owner = true
+wait_time = 0.1
+one_shot = true
+
+[node name="AudioShit" type="AudioStreamPlayer" parent="." unique_id=2071904228]
+unique_name_in_owner = true
+stream = ExtResource("5_6kt6m")
+volume_db = -5.0
+pitch_scale = 1.5
+bus = &"Sfx"
+
+[connection signal="area_entered" from="Pivot/BoxCarrot" to="." method="_on_box_carrot_area_entered"]
+[connection signal="area_entered" from="Pivot/HitboxBite" to="." method="_on_hitbix_bite_area_entered"]
+[connection signal="finished" from="AudioShit" to="." method="_on_audio_shit_finished"]

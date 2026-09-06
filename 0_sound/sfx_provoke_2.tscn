@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cnaphgskvbkie"]
+
+[ext_resource type="PackedScene" uid="uid://c33qy6gtn75br" path="res://addons/sound_engine/sfx.tscn" id="1_bmmxn"]
+[ext_resource type="AudioStream" uid="uid://j3vmybshcbcn" path="res://0_sound/挑衅_02.wav" id="2_bmmxn"]
+
+[node name="SfxWc" unique_id=880360423 instance=ExtResource("1_bmmxn")]
+stream = ExtResource("2_bmmxn")
+pitch_scale = 1.4

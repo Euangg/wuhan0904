@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://blfg8trbu3wrh"]
+
+[ext_resource type="Script" uid="uid://kd545rmsr65x" path="res://0_element_3d/carrot_3d.gd" id="1_50ep2"]
+[ext_resource type="Texture2D" uid="uid://ds72dtxstgbo" path="res://0_element_3d/carrot_grow.png" id="2_gpy0m"]
+[ext_resource type="Texture2D" uid="uid://wj05bs7mw70y" path="res://0_element_3d/progress_under.tres" id="3_5hugu"]
+[ext_resource type="Texture2D" uid="uid://26gj4odwlqjx" path="res://0_element_3d/progress_green.tres" id="4_onv4q"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vkqoe"]
+height = 4.5214844
+radius = 5.3251953
+
+[node name="Carrot3d" type="Node3D" unique_id=1211155333]
+script = ExtResource("1_50ep2")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1293785378]
+unique_name_in_owner = true
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=30040714]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.269678, 0)
+shape = SubResource("CylinderShape3D_vkqoe")
+
+[node name="Hybrid2D3DSprite" type="Hybrid2D3DSprite" parent="." unique_id=291295944]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.8271503, 0)
+texture = ExtResource("2_gpy0m")
+hframes = 4
+vframes = 2
+frame = 4
+
+[node name="Marker3D" type="Marker3D" parent="." unique_id=1114596699]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12.511186, 0)
+
+[node name="Control" type="Control" parent="." unique_id=1877926221]
+unique_name_in_owner = true
+custom_maximum_size = Vector2(0, 0)
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ProgressBar" type="TextureProgressBar" parent="Control" unique_id=33038125]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -29.0
+offset_top = -3.0
+offset_right = 29.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(29, 3)
+size_flags_horizontal = 0
+step = 0.1
+texture_under = ExtResource("3_5hugu")
+texture_progress = ExtResource("4_onv4q")
+texture_progress_offset = Vector2(1, 1)

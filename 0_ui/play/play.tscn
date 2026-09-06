@@ -1,0 +1,505 @@
+[gd_scene format=3 uid="uid://d3tgi0aom5546"]
+
+[ext_resource type="Script" uid="uid://dfxtp6ruybqil" path="res://0_ui/play/play.gd" id="1_7r1hd"]
+[ext_resource type="Texture2D" uid="uid://ppmop6hxv4v1" path="res://0_ui/play/PaintedSky_Sunset.hdr" id="2_7r1hd"]
+[ext_resource type="PackedScene" uid="uid://dt518c6w5c4j5" path="res://0_player_3d/player_3d.tscn" id="3_wdj10"]
+[ext_resource type="PackedScene" uid="uid://coklswmbwnecl" path="res://island/island2.tscn" id="4_qn511"]
+[ext_resource type="PackedScene" uid="uid://blfg8trbu3wrh" path="res://0_element_3d/carrot_3d.tscn" id="5_n8sat"]
+[ext_resource type="PackedScene" uid="uid://cuj420axeiap8" path="res://0_element_3d/decoration/dec_stone_small.tscn" id="6_11wxt"]
+[ext_resource type="PackedScene" uid="uid://8dyvul6biboa" path="res://0_element_3d/decoration/dec_stone_big.tscn" id="7_1rq14"]
+[ext_resource type="PackedScene" uid="uid://dbkgr1wn4smia" path="res://0_element_3d/decoration/dec_bush.tscn" id="8_7x5i8"]
+[ext_resource type="PackedScene" uid="uid://cbfcxdngunr6" path="res://0_element_3d/decoration/dec_bush_2.tscn" id="9_510o0"]
+[ext_resource type="PackedScene" uid="uid://dsa28qvclijim" path="res://0_element_3d/decoration/dec_bush_3.tscn" id="10_vl6yd"]
+[ext_resource type="PackedScene" uid="uid://4pu2pvh8r5w0" path="res://0_element_3d/decoration/dec_bush_4.tscn" id="11_kin8o"]
+[ext_resource type="PackedScene" uid="uid://trwefwel6lhm" path="res://0_element_3d/decoration/dec_dbush.tscn" id="12_nb3pp"]
+[ext_resource type="PackedScene" uid="uid://crgn4ro5siccp" path="res://0_element_3d/decoration/dec_dbush_2.tscn" id="13_3lwyu"]
+[ext_resource type="PackedScene" uid="uid://cruqw617u8w74" path="res://0_element_3d/decoration/dec_flower.tscn" id="14_q1s4h"]
+[ext_resource type="PackedScene" uid="uid://blvfbx0jawvv2" path="res://0_element_3d/decoration/dec_flower_2.tscn" id="15_3jp6x"]
+[ext_resource type="PackedScene" uid="uid://b0m8yv3pmawg6" path="res://0_element_3d/decoration/dec_grass.tscn" id="16_7gbop"]
+[ext_resource type="PackedScene" uid="uid://b3vvt8gjthaft" path="res://0_element_3d/decoration/dec_grass_2.tscn" id="17_uqjm2"]
+[ext_resource type="PackedScene" uid="uid://kgy1fea8vi2i" path="res://0_element_3d/decoration/dec_grass_3.tscn" id="18_4j68u"]
+[ext_resource type="PackedScene" uid="uid://cm2yi133rsiu3" path="res://0_element_3d/decoration/dec_grass_4.tscn" id="19_lg14r"]
+[ext_resource type="PackedScene" uid="uid://72wskif3buxb" path="res://0_element_3d/decoration/dec_grass_5.tscn" id="20_ia3cr"]
+[ext_resource type="PackedScene" uid="uid://dwwcictfcmajj" path="res://0_element_3d/decoration/dec_grass_6.tscn" id="21_5t4w6"]
+[ext_resource type="PackedScene" uid="uid://cok7jobqfsnkv" path="res://0_element_3d/decoration/dec_mushroom.tscn" id="22_el3eq"]
+[ext_resource type="PackedScene" uid="uid://061tip5ot0cw" path="res://0_element_3d/decoration/dec_mushroom_2.tscn" id="23_eiqnx"]
+[ext_resource type="PackedScene" uid="uid://drq7xf7ojfwq4" path="res://0_element_3d/decoration/dec_mushroom_3.tscn" id="24_iv04d"]
+[ext_resource type="PackedScene" uid="uid://3a0a86o1bg7r" path="res://0_element_3d/decoration/dec_wheat.tscn" id="25_32mbl"]
+[ext_resource type="Texture2D" uid="uid://civxfhau64ue0" path="res://0_ui/play/cloud_1.png" id="26_wdj10"]
+[ext_resource type="AudioStream" uid="uid://ddqhuub1y0qwt" path="res://0_sound/321fight/3.wav" id="27_kyb8q"]
+[ext_resource type="Texture2D" uid="uid://cxglyd2dh5od2" path="res://0_ui/play/cloud_2.png" id="27_qn511"]
+[ext_resource type="AudioStream" uid="uid://dly500x6eyi3e" path="res://0_sound/321fight/2.wav" id="28_1h4r4"]
+[ext_resource type="AudioStream" uid="uid://cgxkopr5ttu5e" path="res://0_sound/挑衅_01.wav" id="28_qn511"]
+[ext_resource type="AudioStream" uid="uid://j3vmybshcbcn" path="res://0_sound/挑衅_02.wav" id="29_n8sat"]
+[ext_resource type="AudioStream" uid="uid://ce7tcfxmym3ev" path="res://0_sound/321fight/1.wav" id="29_yknpp"]
+[ext_resource type="AudioStream" uid="uid://c1bxkeu0ojcbr" path="res://0_sound/321fight/fight.wav" id="30_clbou"]
+[ext_resource type="Texture2D" uid="uid://whqqv2hbnttu" path="res://0_ui/play/fight_01.png" id="31_ce0f3"]
+[ext_resource type="Texture2D" uid="uid://b5trxcgxydq0n" path="res://0_ui/play/ui_fight_00.png" id="32_wjtb3"]
+[ext_resource type="Texture2D" uid="uid://bbpu4iv0y77ge" path="res://0_ui/play/fight_02.png" id="33_1w13t"]
+[ext_resource type="Texture2D" uid="uid://b7rg2qg5wlthb" path="res://0_ui/play/1.png" id="34_8j3ka"]
+[ext_resource type="Texture2D" uid="uid://c7adisvdd644c" path="res://0_ui/play/2.png" id="35_ax4k6"]
+[ext_resource type="Texture2D" uid="uid://mrsxsiwdtxdr" path="res://0_ui/play/3.png" id="36_er1mq"]
+[ext_resource type="Texture2D" uid="uid://bdxekx584f5wq" path="res://0_ui/play/f.png" id="37_co882"]
+[ext_resource type="Texture2D" uid="uid://dvd1ip0mugu4k" path="res://0_ui/play/tip_1.png" id="41_11wxt"]
+[ext_resource type="Texture2D" uid="uid://dvnuahrwxvyam" path="res://0_ui/play/tip_2.png" id="42_1rq14"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_0xlj3"]
+panorama = ExtResource("2_7r1hd")
+
+[sub_resource type="Sky" id="Sky_670pf"]
+sky_material = SubResource("PanoramaSkyMaterial_0xlj3")
+
+[sub_resource type="Environment" id="Environment_670pf"]
+background_mode = 2
+sky = SubResource("Sky_670pf")
+sky_rotation = Vector3(-2.8850293, 0, 0)
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_s6xjt"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 4000.0
+dof_blur_near_enabled = true
+dof_blur_near_distance = 18.64
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vkqoe"]
+size = Vector3(1, 0.2084961, 1.8842773)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0xlj3"]
+size = Vector3(0.81640625, 0.2084961, 1.8842773)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_vkqoe"]
+
+[sub_resource type="Animation" id="Animation_b6n1k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("31_ce0f3")]
+}
+
+[sub_resource type="Animation" id="Animation_1tkys"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Front:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("31_ce0f3"), ExtResource("33_1w13t")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h1mr1"]
+_data = {
+&"RESET": SubResource("Animation_b6n1k"),
+&"idle": SubResource("Animation_1tkys")
+}
+
+[sub_resource type="Animation" id="Animation_h1mr1"]
+resource_name = "1"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("34_8j3ka")]
+}
+
+[sub_resource type="Animation" id="Animation_bv7gd"]
+resource_name = "2"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("35_ax4k6")]
+}
+
+[sub_resource type="Animation" id="Animation_i1xab"]
+resource_name = "3"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("36_er1mq")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Front:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_wop8x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Front:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_vyuwx"]
+resource_name = "fight"
+length = 0.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pic:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("37_co882"), null]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Front:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5gtoq"]
+_data = {
+&"1": SubResource("Animation_h1mr1"),
+&"2": SubResource("Animation_bv7gd"),
+&"3": SubResource("Animation_i1xab"),
+&"RESET": SubResource("Animation_wop8x"),
+&"fight": SubResource("Animation_vyuwx")
+}
+
+[node name="Play" type="Node3D" unique_id=1096217038]
+script = ExtResource("1_7r1hd")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1807522886]
+environment = SubResource("Environment_670pf")
+
+[node name="Camera" type="Camera3D" parent="." unique_id=37424912]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.93969256, 0.3420201, 0, -0.3420201, 0.93969256, 0, 19.999939, 39.999878)
+visible = false
+attributes = SubResource("CameraAttributesPractical_s6xjt")
+current = true
+
+[node name="Player3d" parent="." unique_id=230906429 instance=ExtResource("3_wdj10")]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -35.31465, 0, 0)
+
+[node name="Player3d2" parent="." unique_id=1553129999 instance=ExtResource("3_wdj10")]
+unique_name_in_owner = true
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 29.93561, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1725578646]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.9809552, 0.19423436, 0, -0.19423436, 0.9809552, 0, 106.079834, -149.61914)
+shadow_enabled = true
+
+[node name="island2" parent="." unique_id=1071192052 instance=ExtResource("4_qn511")]
+unique_name_in_owner = true
+transform = Transform3D(70, 0, 0, 0, 70, 0, 0, 0, 70, 0, 0, 0)
+metadata/_edit_lock_ = true
+
+[node name="AreaLeft" type="Area3D" parent="island2" unique_id=1957335737]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="island2/AreaLeft" unique_id=1901383555]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.96446675, 0.08664984, -0.028076172)
+shape = SubResource("BoxShape3D_vkqoe")
+
+[node name="AreaRight" type="Area3D" parent="island2" unique_id=1973061977]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="island2/AreaRight" unique_id=1799565755]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.964, 0.087, -0.028)
+shape = SubResource("BoxShape3D_vkqoe")
+
+[node name="AreaMid" type="Area3D" parent="island2" unique_id=722483655]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="island2/AreaMid" unique_id=171063093]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.087, -0.028)
+shape = SubResource("BoxShape3D_0xlj3")
+
+[node name="MarkerSpawn1" type="Marker3D" parent="island2" unique_id=1325699079]
+unique_name_in_owner = true
+transform = Transform3D(0.014285714, 0, 0, 0, 0.014285714, 0, 0, 0, 0.014285714, -0.5714286, 0.42857143, 0)
+
+[node name="MarkerSpawn2" type="Marker3D" parent="island2" unique_id=707591175]
+unique_name_in_owner = true
+transform = Transform3D(0.014285714, 0, 0, 0, 0.014285714, 0, 0, 0, 0.014285714, 0.5714286, 0.42857143, 0)
+
+[node name="MarkerSpawn3" type="Marker3D" parent="island2" unique_id=1458156140]
+unique_name_in_owner = true
+transform = Transform3D(0.014285714, 0, 0, 0, 0.014285714, 0, 0, 0, 0.014285714, 0, 0.42857143, 0)
+
+[node name="MarkerSpawn4" type="Marker3D" parent="island2" unique_id=454744310]
+unique_name_in_owner = true
+transform = Transform3D(0.014285714, 0, 0, 0, 0.014285714, 0, 0, 0, 0.014285714, 0, 0.42857143, 0.5714286)
+
+[node name="MarkerSpawn5" type="Marker3D" parent="island2" unique_id=1449469453]
+unique_name_in_owner = true
+transform = Transform3D(0.014285714, 0, 0, 0, 0.014285714, 0, 0, 0, 0.014285714, 0, 0.42857143, -0.5714286)
+
+[node name="Carrot3d" parent="." unique_id=1211155333 instance=ExtResource("5_n8sat")]
+
+[node name="Carrot3d2" parent="." unique_id=952770617 instance=ExtResource("5_n8sat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 35)
+
+[node name="Carrot3d3" parent="." unique_id=1329848308 instance=ExtResource("5_n8sat")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -35)
+
+[node name="Decoration" type="Node3D" parent="." unique_id=1200068527]
+
+[node name="DecStone" parent="Decoration" unique_id=454279454 instance=ExtResource("6_11wxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.944117, 0, -21.68274)
+
+[node name="DecStone2" parent="Decoration" unique_id=332526193 instance=ExtResource("7_1rq14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.665052, 1.4257171, -34.64392)
+
+[node name="DecStone3" parent="Decoration" unique_id=1188339610 instance=ExtResource("8_7x5i8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.28632, 0, 48.4776)
+
+[node name="DecStone4" parent="Decoration" unique_id=1314669276 instance=ExtResource("9_510o0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.336054, 0, -19.203735)
+
+[node name="DecStone5" parent="Decoration" unique_id=5481935 instance=ExtResource("10_vl6yd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.115303, 0, -41.01355)
+
+[node name="DecStone6" parent="Decoration" unique_id=731663589 instance=ExtResource("11_kin8o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.448357, 0, -28.510376)
+
+[node name="DecStone7" parent="Decoration" unique_id=1407565275 instance=ExtResource("12_nb3pp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.058395, 0, -24.208862)
+
+[node name="DecStone8" parent="Decoration" unique_id=212742847 instance=ExtResource("13_3lwyu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.856285, 0, 15.821777)
+
+[node name="DecStone9" parent="Decoration" unique_id=1909719890 instance=ExtResource("14_q1s4h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.38784, 0, 0.89801025)
+
+[node name="DecStone10" parent="Decoration" unique_id=2082899479 instance=ExtResource("15_3jp6x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.975414, 0, -13.91333)
+
+[node name="DecStone11" parent="Decoration" unique_id=1181203471 instance=ExtResource("16_7gbop")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6644135, 0, -48.194153)
+
+[node name="DecStone12" parent="Decoration" unique_id=1343957403 instance=ExtResource("17_uqjm2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.106827, 0, -35.179565)
+
+[node name="DecStone13" parent="Decoration" unique_id=1227167639 instance=ExtResource("18_4j68u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.022118, 0, -42.50061)
+
+[node name="DecStone14" parent="Decoration" unique_id=1301494680 instance=ExtResource("19_lg14r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.651169, 0, -46.295227)
+
+[node name="DecStone15" parent="Decoration" unique_id=1924414523 instance=ExtResource("20_ia3cr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.209076, 0, -26.291382)
+
+[node name="DecStone16" parent="Decoration" unique_id=420629864 instance=ExtResource("21_5t4w6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.49716, 0, 17.401978)
+
+[node name="DecStone17" parent="Decoration" unique_id=969037371 instance=ExtResource("22_el3eq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.005745, 0, 39.56726)
+
+[node name="DecStone18" parent="Decoration" unique_id=1031352254 instance=ExtResource("23_eiqnx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.55026, 0, -6.757263)
+
+[node name="DecStone19" parent="Decoration" unique_id=1303409819 instance=ExtResource("24_iv04d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.178284, 0, -47.32428)
+
+[node name="DecStone20" parent="Decoration" unique_id=1900946482 instance=ExtResource("7_1rq14")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.94758, 0, 15.675964)
+
+[node name="DecStone21" parent="Decoration" unique_id=1329764569 instance=ExtResource("6_11wxt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.19571, 0, 22.500626)
+
+[node name="DecStone22" parent="Decoration" unique_id=1133648614 instance=ExtResource("25_32mbl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.567184, 0, 28.765297)
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=1193061164]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, -189.9317, -567.2753)
+texture = ExtResource("26_wdj10")
+
+[node name="Sprite3D2" type="Sprite3D" parent="." unique_id=960316409]
+transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, -189.9317, -983.09344)
+texture = ExtResource("27_qn511")
+
+[node name="AreaDead" type="Area3D" parent="." unique_id=2144205577]
+collision_layer = 0
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaDead" unique_id=141265761]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -20, 0)
+shape = SubResource("WorldBoundaryShape3D_vkqoe")
+
+[node name="TimerSeed" type="Timer" parent="." unique_id=1924883813]
+unique_name_in_owner = true
+one_shot = true
+
+[node name="Start" type="Node" parent="." unique_id=979244414]
+
+[node name="AudioStreamPlayerProvoke2" type="AudioStreamPlayer" parent="Start" unique_id=1752199189]
+stream = ExtResource("29_n8sat")
+pitch_scale = 1.2
+autoplay = true
+
+[node name="AudioStreamPlayerProvoke1" type="AudioStreamPlayer" parent="Start" unique_id=18705767]
+unique_name_in_owner = true
+stream = ExtResource("28_qn511")
+pitch_scale = 1.4
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Start" unique_id=1104534791]
+unique_name_in_owner = true
+stream = ExtResource("27_kyb8q")
+volume_db = 10.0
+pitch_scale = 1.2
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="Start" unique_id=1778222912]
+unique_name_in_owner = true
+stream = ExtResource("28_1h4r4")
+volume_db = 10.0
+pitch_scale = 1.2
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="Start" unique_id=1190636264]
+unique_name_in_owner = true
+stream = ExtResource("29_yknpp")
+volume_db = 10.0
+pitch_scale = 1.2
+
+[node name="AudioStreamPlayerF" type="AudioStreamPlayer" parent="Start" unique_id=709564266]
+unique_name_in_owner = true
+stream = ExtResource("30_clbou")
+volume_db = 10.0
+pitch_scale = 1.5
+
+[node name="Control" type="Control" parent="Start" unique_id=2095906206]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Front" type="Sprite2D" parent="Start/Control" unique_id=1452453700]
+visible = false
+texture = ExtResource("31_ce0f3")
+centered = false
+
+[node name="Score1" type="Sprite2D" parent="Start/Control/Front" unique_id=797327043]
+unique_name_in_owner = true
+position = Vector2(770, 90)
+texture = ExtResource("32_wjtb3")
+
+[node name="Score2" type="Sprite2D" parent="Start/Control/Front" unique_id=1539498465]
+unique_name_in_owner = true
+position = Vector2(1124, 94)
+texture = ExtResource("32_wjtb3")
+
+[node name="AnimationPlayerUi" type="AnimationPlayer" parent="Start/Control" unique_id=428791990]
+libraries/ = SubResource("AnimationLibrary_h1mr1")
+autoplay = &"idle"
+
+[node name="Pic" type="Sprite2D" parent="Start/Control" unique_id=1904076183]
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Start/Control" unique_id=2080265626]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_5gtoq")
+
+[node name="Tip1" type="Sprite2D" parent="Start/Control" unique_id=1433306142]
+unique_name_in_owner = true
+position = Vector2(48.000008, 132)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("41_11wxt")
+centered = false
+
+[node name="Tip2" type="Sprite2D" parent="Start/Control" unique_id=1094241468]
+unique_name_in_owner = true
+position = Vector2(1161, 148)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("42_1rq14")
+centered = false
+
+[node name="TimerEnd" type="Timer" parent="." unique_id=425475317]
+unique_name_in_owner = true
+one_shot = true
+
+[connection signal="body_entered" from="AreaDead" to="." method="_on_area_dead_body_entered"]
+[connection signal="timeout" from="TimerSeed" to="." method="_on_timer_seed_timeout"]
+[connection signal="finished" from="Start/AudioStreamPlayerProvoke2" to="." method="_on_audio_stream_player_provoke_2_finished"]
+[connection signal="finished" from="Start/AudioStreamPlayerProvoke1" to="." method="_on_audio_stream_player_provoke_1_finished"]
+[connection signal="finished" from="Start/AudioStreamPlayer3" to="." method="_on_audio_stream_player_3_finished"]
+[connection signal="finished" from="Start/AudioStreamPlayer2" to="." method="_on_audio_stream_player_2_finished"]
+[connection signal="finished" from="Start/AudioStreamPlayer1" to="." method="_on_audio_stream_player_1_finished"]
+[connection signal="finished" from="Start/AudioStreamPlayerF" to="." method="_on_audio_stream_player_f_finished"]
+[connection signal="timeout" from="TimerEnd" to="." method="_on_timer_end_timeout"]
