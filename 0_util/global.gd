@@ -9,7 +9,7 @@ var controller=1
 func stun(time:float=0.2):
 	#var tween=create_tween()
 	#tween.tween_property()
-	Engine.time_scale=0.1
+	Engine.time_scale=0.01
 	if %TimerStun.is_stopped():%TimerStun.start(0.2)
 	else:%TimerStun.start(%TimerStun.time_left+0.2)
 

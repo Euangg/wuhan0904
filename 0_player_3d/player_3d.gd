@@ -257,7 +257,7 @@ func _physics_process(delta: float) -> void:
 		State.BITE:
 			velocity.x=0
 			velocity.z=0
-			if %SpriteBody.frame==13:is_hurt=false
+			if %SpriteBody.frame==14:is_hurt=false
 		State.ATTACK:
 			velocity.x=0
 			velocity.z=0
@@ -279,22 +279,29 @@ func _physics_process(delta: float) -> void:
 const SFX_HIT = preload("uid://b5cffanbxmack")
 
 func _on_box_carrot_area_entered(area: Area3D) -> void:
-	if is_hurt:
+	if is_hurt or is_bited:
 		return
 	var p:Player3D=area.get_parent().get_parent()
 	if p.is_in_group(get_groups()[0]):pass
 	else:
 		#box_carrot.scale-=Vector3.ONE*0.1
-		p.f=(p.position-position).normalized()*150*(1+p.num_hurt/5.)/p.body_scale
+		p.f=(p.position-position).normalized()*400*(1+p.num_hurt/5.)
 		p.is_hurt=true
 		SoundEngine.play_sfx_sfx(SFX_HIT.instantiate())
 
 func bite_failed():
-	if %SpriteBody.frame==13:return
+	if %SpriteBody.frame==14:return
 	%AnimationPlayer.stop()
-	SoundEngine.play_sfx(preload("uid://bktecspb5ton4"))
-	%SpriteBody.frame=14
+	%SpriteBody.frame=15
 	%TimerBite.start(0.3)
+	SoundEngine.play_sfx(preload("uid://bktecspb5ton4"))
+func bit_succeed():
+	%AnimationPlayer.stop()
+	%SpriteBody.frame=14
+	%TimerBite.start(0.5)
+	Global.stun(0.5)
+	SoundEngine.play_sfx(SFX_BLOCKED)
+	SoundEngine.play_sfx(SFX_EAT)
 func _on_hitbix_bite_area_entered(area: Area3D) -> void:
 	var p:Player3D=area.get_parent().get_parent()
 	if p.is_in_group(get_groups()[0]):pass
@@ -302,13 +309,7 @@ func _on_hitbix_bite_area_entered(area: Area3D) -> void:
 		var multi=p.scale.x/scale.x
 		add_scale+=p.box_carrot.scale.x*0.1*multi
 		p.is_bited=true
-		Global.stun(0.5)
-		%AnimationPlayer.stop()
-		%SpriteBody.frame=13
-		%TimerBite.start(0.5)
-		SoundEngine.play_sfx(SFX_BLOCKED)
-		SoundEngine.play_sfx(SFX_EAT)
-
+		bit_succeed()
 
 func play_sfx_eat():
 	SoundEngine.play_sfx(SFX_EAT)

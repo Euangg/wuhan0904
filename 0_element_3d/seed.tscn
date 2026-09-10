@@ -19,3 +19,4 @@ shape = SubResource("SphereShape3D_vkqoe")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.710919, 0)
 texture = ExtResource("1_4x5m6")
 hframes = 4
+vframes = 2

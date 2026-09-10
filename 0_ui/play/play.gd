@@ -85,7 +85,7 @@ func _on_area_dead_body_entered(body: Node3D) -> void:
 	if body is Player3D:
 		var p:Player3D=body
 		p.is_die=true
-		p.scale=Vector3.ONE*base_scale
+		#p.scale=Vector3.ONE*base_scale
 		p.num_hurt=0
 		if p.is_in_group("player_1"):
 			p.position=%MarkerSpawn1.global_position
@@ -108,7 +108,6 @@ func _on_area_dead_body_entered(body: Node3D) -> void:
 func _on_timer_seed_timeout() -> void:
 	var seed:CharacterBody3D=SEED.instantiate()
 	seed.position=Vector3(randf_range(-110,110),60,randf_range(-70,70))
-	print(seed.position)
 	add_child(seed)
 	%TimerSeed.start(randf_range(5,10))
 
@@ -131,8 +130,6 @@ func _on_audio_stream_player_1_finished() -> void:
 	%Tip1.hide()
 	%Tip2.hide()
 func _on_audio_stream_player_f_finished() -> void:pass
-	
-
 
 func _on_timer_end_timeout() -> void:
 	SoundEngine.stop_bgm()

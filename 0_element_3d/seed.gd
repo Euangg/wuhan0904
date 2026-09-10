@@ -3,7 +3,6 @@ extends CharacterBody3D
 const CARROT_3D = preload("uid://blfg8trbu3wrh")
 
 func grow():
-	print("seed down")
 	var carrot:Carrot3D=CARROT_3D.instantiate()
 	carrot.position=position
 	carrot.scale_max=randf_range(0.4,1.2)
