@@ -24,7 +24,7 @@
 dof_blur_far_enabled = true
 dof_blur_far_distance = 4000.0
 dof_blur_near_enabled = true
-dof_blur_near_distance = 18.64
+dof_blur_near_distance = 26.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_vkqoe"]
 size = Vector3(1, 0.2084961, 1.8842773)
@@ -203,8 +203,7 @@ script = ExtResource("1_7r1hd")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=37424912]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 0.93969256, 0.3420201, 0, -0.3420201, 0.93969256, 0, 19.999939, 39.999878)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 0.8660253, 0.49999997, 0, -0.49999997, 0.8660253, 0, 25, 60)
 attributes = SubResource("CameraAttributesPractical_s6xjt")
 current = true
 
