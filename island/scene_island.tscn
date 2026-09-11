@@ -23,7 +23,10 @@
 [ext_resource type="PackedScene" uid="uid://drq7xf7ojfwq4" path="res://0_element_3d/decoration/dec_mushroom_3.tscn" id="20_xhf36"]
 [ext_resource type="PackedScene" uid="uid://3a0a86o1bg7r" path="res://0_element_3d/decoration/dec_wheat.tscn" id="21_w5qxj"]
 [ext_resource type="Texture2D" uid="uid://civxfhau64ue0" path="res://0_ui/play/cloud_1.png" id="23_akr2l"]
+[ext_resource type="PackedScene" uid="uid://q3ifjkllfqb5" path="res://0_element_3d/decoration/dec_grass_7.tscn" id="23_um68t"]
 [ext_resource type="Texture2D" uid="uid://cxglyd2dh5od2" path="res://0_ui/play/cloud_2.png" id="24_57lhx"]
+[ext_resource type="Texture2D" uid="uid://dmpm7stqms5ki" path="res://0_ui/play/back_01.png" id="25_57lhx"]
+[ext_resource type="Texture2D" uid="uid://c4a2l8stan365" path="res://0_ui/play/tower.png" id="26_1l511"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ugcu4"]
 panorama = ExtResource("1_i4gs1")
@@ -34,9 +37,24 @@ sky_material = SubResource("PanoramaSkyMaterial_ugcu4")
 [sub_resource type="Environment" id="Environment_akr2l"]
 background_mode = 2
 sky = SubResource("Sky_670pf")
-sky_rotation = Vector3(-2.8850293, 0, 0)
-fog_light_energy = 2.48
-adjustment_brightness = 1.8
+sky_rotation = Vector3(-2.9670596, 0, 0)
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 0.1
+glow_strength = 2.0
+glow_bloom = 0.1
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.29637232, 0.1061117, 0.5451746, 1)
+fog_light_energy = 3.29
+fog_density = 0.2
+fog_aerial_perspective = 0.437
+fog_sky_affect = 0.0
+fog_depth_curve = 0.870552
+fog_depth_begin = 20.0
+fog_depth_end = 200.0
+adjustment_enabled = true
+adjustment_contrast = 1.1
 
 [node name="SceneIsland" type="Node3D" unique_id=902185827]
 
@@ -49,80 +67,206 @@ transform = Transform3D(1, 0, 0, 0, 0.9809552, 0.19423436, 0, -0.19423436, 0.980
 shadow_enabled = true
 
 [node name="island" parent="." unique_id=1071192052 instance=ExtResource("1_i540w")]
-transform = Transform3D(70, 0, 0, 0, 70, 0, 0, 0, 70, 0, 0, 0)
+transform = Transform3D(70, 0, 0, 0, 70, 0, 0, 0, 70, -0.03385353, 0, -0.0034103394)
+metadata/_edit_lock_ = true
 
 [node name="Decoration" type="Node3D" parent="." unique_id=1429443345]
 
 [node name="DecStone" parent="Decoration" unique_id=454279454 instance=ExtResource("2_624sm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.944117, 0, -21.68274)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -34.07032, 0.067765236, -40.581604)
 
 [node name="DecStone2" parent="Decoration" unique_id=12923167 instance=ExtResource("3_i4gs1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.665052, 1.4257171, -34.64392)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 17.977858, -1.0276101, -45.366512)
 
 [node name="DecStone3" parent="Decoration" unique_id=1756805638 instance=ExtResource("4_ugcu4")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.28632, 0, 48.4776)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -17.28632, 0, 48.4776)
+
+[node name="DecStone52" parent="Decoration" unique_id=1705586794 instance=ExtResource("4_ugcu4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 42.558872, 0, 1.6025085)
+
+[node name="DecStone26" parent="Decoration" unique_id=584649722 instance=ExtResource("4_ugcu4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.8435912, -0.5865364, -27.64017)
 
 [node name="DecStone4" parent="Decoration" unique_id=1979097101 instance=ExtResource("5_akr2l")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.336054, 0, -19.203735)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 9.336054, -0.46747684, -20.895498)
+
+[node name="DecStone23" parent="Decoration" unique_id=1070308139 instance=ExtResource("5_akr2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.8647423, -0.45806837, -15.184446)
+
+[node name="DecStone24" parent="Decoration" unique_id=145324966 instance=ExtResource("5_akr2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 25.321472, 0, -17.846373)
+
+[node name="DecStone38" parent="Decoration" unique_id=1858652531 instance=ExtResource("5_akr2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 46.05503, 0, -40.75953)
+
+[node name="DecStone25" parent="Decoration" unique_id=742710963 instance=ExtResource("5_akr2l")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 12.066427, -0.12285805, -13.827084)
+
+[node name="DecStone40" parent="Decoration" unique_id=1519954109 instance=ExtResource("5_akr2l")]
+transform = Transform3D(0.6, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.6085033, -0.12285805, 35.065876)
+
+[node name="DecStone31" parent="Decoration" unique_id=1143564510 instance=ExtResource("4_ugcu4")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -84.02772, 0, 17.69892)
+
+[node name="DecStone32" parent="Decoration" unique_id=503132460 instance=ExtResource("5_akr2l")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -84.48804, 0, 22.184685)
+
+[node name="DecStone33" parent="Decoration" unique_id=1002483480 instance=ExtResource("5_akr2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -77.823135, -0.101169586, 27.674097)
+
+[node name="DecStone34" parent="Decoration" unique_id=525718776 instance=ExtResource("5_akr2l")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -54.184967, 0, 27.492716)
+
+[node name="DecStone35" parent="Decoration" unique_id=555389941 instance=ExtResource("5_akr2l")]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -66.385765, 0, 31.512005)
 
 [node name="DecStone5" parent="Decoration" unique_id=1764173084 instance=ExtResource("6_57lhx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.115303, 0, -41.01355)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.427284, -0.48929214, -7.179882)
 
 [node name="DecStone6" parent="Decoration" unique_id=937275152 instance=ExtResource("7_1l511")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.448357, 0, -28.510376)
 
+[node name="DecStone48" parent="Decoration" unique_id=426733454 instance=ExtResource("7_1l511")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 71.377686, 0, -23.258703)
+
+[node name="DecStone41" parent="Decoration" unique_id=1192458986 instance=ExtResource("7_1l511")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -40.611336, -1.6298037, 59.250584)
+
+[node name="DecStone37" parent="Decoration" unique_id=1388026225 instance=ExtResource("7_1l511")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 70.94088, -2.695736, 29.064672)
+
 [node name="DecStone7" parent="Decoration" unique_id=2095644547 instance=ExtResource("8_um68t")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 73.058395, 0, -24.208862)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 25.503618, 0, -50.840652)
 
 [node name="DecStone8" parent="Decoration" unique_id=165402681 instance=ExtResource("9_uph6f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 88.856285, 0, 15.821777)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -66.63524, 0, -32.202305)
 
 [node name="DecStone9" parent="Decoration" unique_id=98830150 instance=ExtResource("10_pcwtn")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 84.38784, 0, 0.89801025)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.931469, 0, -22.644165)
+
+[node name="DecStone46" parent="Decoration" unique_id=1522352477 instance=ExtResource("10_pcwtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 91.75944, -0.428483, 23.426659)
+
+[node name="DecStone42" parent="Decoration" unique_id=1387815316 instance=ExtResource("10_pcwtn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.075733, 0, 44.324432)
 
 [node name="DecStone10" parent="Decoration" unique_id=1617429346 instance=ExtResource("11_kldrl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -55.975414, 0, -13.91333)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -44.387157, 0, 5.325367)
 
 [node name="DecStone11" parent="Decoration" unique_id=467868764 instance=ExtResource("12_bj6ml")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6644135, 0, -48.194153)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.096195, -0.7626581, -39.01579)
 
 [node name="DecStone12" parent="Decoration" unique_id=1382882612 instance=ExtResource("13_sm83i")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -63.106827, 0, -35.179565)
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -23.809628, 1.9073486e-06, -16.682365)
+
+[node name="DecStone51" parent="Decoration" unique_id=415316386 instance=ExtResource("13_sm83i")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 91.790535, -1.4332724, 5.884207)
 
 [node name="DecStone13" parent="Decoration" unique_id=2136391469 instance=ExtResource("14_3g5o0")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 45.022118, 0, -42.50061)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.518566, -3.8146973e-06, 53.172836)
 
 [node name="DecStone14" parent="Decoration" unique_id=1492051427 instance=ExtResource("15_pvybl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.651169, 0, -46.295227)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -26.121544, 0, -50.895767)
+
+[node name="DecStone36" parent="Decoration" unique_id=301021569 instance=ExtResource("15_pvybl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.00629, 0, -48.584038)
+
+[node name="DecStone49" parent="Decoration" unique_id=1663772932 instance=ExtResource("15_pvybl")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -65.89471, 0, -23.398857)
+
+[node name="DecStone50" parent="Decoration" unique_id=121605286 instance=ExtResource("15_pvybl")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -75.77946, 0, -21.087128)
+
+[node name="DecStone45" parent="Decoration" unique_id=1145519946 instance=ExtResource("15_pvybl")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 41.110664, -0.64188385, 49.329105)
 
 [node name="DecStone15" parent="Decoration" unique_id=1663330072 instance=ExtResource("16_w3nkc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.209076, 0, -26.291382)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.095047, 0, -51.1202)
 
 [node name="DecStone16" parent="Decoration" unique_id=1477042830 instance=ExtResource("17_qxtfi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.49716, 0, 17.401978)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 64.49716, 0, 34.33288)
+
+[node name="DecStone39" parent="Decoration" unique_id=201360511 instance=ExtResource("17_qxtfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -59.9517, -1.9073486e-06, -45.38849)
+
+[node name="DecStone30" parent="Decoration" unique_id=389324254 instance=ExtResource("17_qxtfi")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -34.41298, -1.9073486e-06, 58.15866)
 
 [node name="DecStone17" parent="Decoration" unique_id=1916498696 instance=ExtResource("18_kmrxx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -46.005745, 0, 39.56726)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -14.045464, 0, -6.677944)
+
+[node name="DecStone53" parent="Decoration" unique_id=1025874762 instance=ExtResource("18_kmrxx")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -90.29217, -1.9073486e-06, 24.646358)
+
+[node name="DecStone27" parent="Decoration" unique_id=448728330 instance=ExtResource("18_kmrxx")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -29.405293, 0, -23.92086)
 
 [node name="DecStone18" parent="Decoration" unique_id=1458825987 instance=ExtResource("19_8apum")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -76.55026, 0, -6.757263)
 
+[node name="DecStone44" parent="Decoration" unique_id=1977050349 instance=ExtResource("19_8apum")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -8.229679, -1.221375, 58.25146)
+
 [node name="DecStone19" parent="Decoration" unique_id=366532643 instance=ExtResource("20_xhf36")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.178284, 0, -47.32428)
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, -12.375621, 0, -18.713383)
 
 [node name="DecStone20" parent="Decoration" unique_id=2012267909 instance=ExtResource("3_i4gs1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -86.94758, 0, 15.675964)
+transform = Transform3D(0.4, 0, 0, 0, 0.4, 0, 0, 0, 0.4, -89.35241, 0, 3.951908)
 
 [node name="DecStone21" parent="Decoration" unique_id=1987272356 instance=ExtResource("2_624sm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.19571, 0, 22.500626)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -37.19571, 0, 8.998121)
 
 [node name="DecStone22" parent="Decoration" unique_id=74753330 instance=ExtResource("21_w5qxj")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 24.567184, 0, 28.765297)
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 24.567184, 0, 28.765297)
+
+[node name="DecStone47" parent="Decoration" unique_id=482209829 instance=ExtResource("21_w5qxj")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 83.64745, -2.2219238, -14.410473)
+
+[node name="DecStone43" parent="Decoration" unique_id=687680091 instance=ExtResource("21_w5qxj")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -85.718544, 0, -12.3520355)
+
+[node name="DecStone28" parent="Decoration" unique_id=242283628 instance=ExtResource("21_w5qxj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -47.07735, 0, -54.788883)
+
+[node name="DecStone29" parent="Decoration" unique_id=379942392 instance=ExtResource("21_w5qxj")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -52.183064, 3.8146973e-06, -51.44724)
+
+[node name="DecStone54" parent="Decoration" unique_id=1484329399 instance=ExtResource("23_um68t")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 13.513483, 2.4626904, -48.73937)
+
+[node name="DecStone61" parent="Decoration" unique_id=1037142010 instance=ExtResource("23_um68t")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, -52.889297, 2.4626904, -17.552172)
+
+[node name="DecStone56" parent="Decoration" unique_id=2036772517 instance=ExtResource("23_um68t")]
+transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 62.89478, 2.4673386, -34.377)
+
+[node name="DecStone57" parent="Decoration" unique_id=1652773797 instance=ExtResource("23_um68t")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 18.56771, 2.4429927, 10.239605)
+
+[node name="DecStone58" parent="Decoration" unique_id=1260788439 instance=ExtResource("23_um68t")]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, -71.77148, 1.7290025, 30.359655)
+
+[node name="DecStone55" parent="Decoration" unique_id=1990108819 instance=ExtResource("23_um68t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.460995, 3.514708, -38.9679)
+
+[node name="DecStone59" parent="Decoration" unique_id=764930430 instance=ExtResource("23_um68t")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.8778951, 1.8700218, -17.709003)
+
+[node name="DecStone60" parent="Decoration" unique_id=1186029570 instance=ExtResource("23_um68t")]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, -5.495719, 2.9795442, -22.299904)
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=111023601]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, -189.9317, -567.2753)
+transform = Transform3D(29.999998, 0, 0, 0, 29.999998, 0, 0, 0, 29.999998, 2.0820618, -191.12762, -228.28069)
 texture = ExtResource("23_akr2l")
 
 [node name="Sprite3D2" type="Sprite3D" parent="." unique_id=93299248]
-transform = Transform3D(30, 0, 0, 0, 30, 0, 0, 0, 30, 0, -189.9317, -983.09344)
+transform = Transform3D(50, 0, 0, 0, 50, 0, 0, 0, 50, 0, -189.9317, -1489.6558)
 texture = ExtResource("24_57lhx")
+
+[node name="Sprite3D4" type="Sprite3D" parent="." unique_id=1511405898]
+transform = Transform3D(75, 0, 0, 0, 75, 0, 0, 0, 75, 622.2196, -559.6063, -977.3202)
+texture = ExtResource("26_1l511")
+
+[node name="Sprite3D3" type="Sprite3D" parent="." unique_id=1871050394]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 30, 0, -520, -521)
+texture = ExtResource("25_57lhx")
