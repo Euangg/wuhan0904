@@ -73,8 +73,12 @@ func _physics_process(delta: float) -> void:
 	
 	if %BoxCarrot.scale.x<=0.1:has_carrot=false
 	
-	if has_carrot:%BoxCarrot.show()
-	else:%BoxCarrot.hide()
+	if has_carrot:
+		%BoxCarrot.show()
+		speed=50*0.8
+	else:
+		%BoxCarrot.hide()
+		speed=50
 	var try_drag=false
 	var try_attack=false
 	var try_bite=Input.is_action_just_pressed(action_bite)

@@ -69,7 +69,8 @@ func camera_chase():
 	
 func _physics_process(delta: float) -> void:
 	camera_chase()
-	%Camera.position=%Camera.position.move_toward(camera_target,20*delta)
+	%Camera.position=%Camera.position.lerp(camera_target,0.08)
+	#%Camera.position=%Camera.position.move_toward(camera_target,40*delta)
 	
 	#var old_scale=%island2.scale.x
 	#old_scale-=delta
