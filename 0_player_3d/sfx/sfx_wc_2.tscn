@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://bvpygussblv3o"]
+
+[ext_resource type="PackedScene" uid="uid://c33qy6gtn75br" path="res://addons/sound_engine/sfx.tscn" id="1_8pb0p"]
+[ext_resource type="AudioStream" uid="uid://cfgpumxrljt1e" path="res://0_player_3d/sfx/sfx_wc_2.mp3" id="2_sffga"]
+
+[node name="SfxWc" unique_id=880360423 instance=ExtResource("1_8pb0p")]
+stream = ExtResource("2_sffga")
+volume_db = 10.0
+pitch_scale = 4.0

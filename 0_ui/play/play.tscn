@@ -3,13 +3,14 @@
 [ext_resource type="Script" uid="uid://dfxtp6ruybqil" path="res://0_ui/play/play.gd" id="1_7r1hd"]
 [ext_resource type="PackedScene" uid="uid://dt518c6w5c4j5" path="res://0_player_3d/player_3d.tscn" id="3_wdj10"]
 [ext_resource type="PackedScene" uid="uid://cdymdxnx4t6l1" path="res://island/scene_island.tscn" id="4_wy6u2"]
-[ext_resource type="PackedScene" uid="uid://blfg8trbu3wrh" path="res://0_element_3d/carrot_3d.tscn" id="5_n8sat"]
-[ext_resource type="AudioStream" uid="uid://ddqhuub1y0qwt" path="res://0_sound/321fight/3.wav" id="27_kyb8q"]
-[ext_resource type="AudioStream" uid="uid://dly500x6eyi3e" path="res://0_sound/321fight/2.wav" id="28_1h4r4"]
-[ext_resource type="AudioStream" uid="uid://cgxkopr5ttu5e" path="res://0_sound/挑衅_01.wav" id="28_qn511"]
-[ext_resource type="AudioStream" uid="uid://j3vmybshcbcn" path="res://0_sound/挑衅_02.wav" id="29_n8sat"]
-[ext_resource type="AudioStream" uid="uid://ce7tcfxmym3ev" path="res://0_sound/321fight/1.wav" id="29_yknpp"]
-[ext_resource type="AudioStream" uid="uid://c1bxkeu0ojcbr" path="res://0_sound/321fight/fight.wav" id="30_clbou"]
+[ext_resource type="PackedScene" uid="uid://blfg8trbu3wrh" path="res://0_element_3d/carrot/carrot_3d.tscn" id="5_n8sat"]
+[ext_resource type="PackedScene" uid="uid://r1cxgi86rgvu" path="res://0_ui/overlay/pause.tscn" id="20_7tptt"]
+[ext_resource type="PackedScene" uid="uid://kggdenkas6xy" path="res://0_element_3d/bird/bird.tscn" id="20_fnwh5"]
+[ext_resource type="AudioStream" uid="uid://ddqhuub1y0qwt" path="res://0_ui/play/sfx/321fight/3.wav" id="27_kyb8q"]
+[ext_resource type="AudioStream" uid="uid://dly500x6eyi3e" path="res://0_ui/play/sfx/321fight/2.wav" id="28_1h4r4"]
+[ext_resource type="AudioStream" uid="uid://j3vmybshcbcn" path="res://0_ui/play/sfx/挑衅_02.wav" id="29_n8sat"]
+[ext_resource type="AudioStream" uid="uid://ce7tcfxmym3ev" path="res://0_ui/play/sfx/321fight/1.wav" id="29_yknpp"]
+[ext_resource type="AudioStream" uid="uid://c1bxkeu0ojcbr" path="res://0_ui/play/sfx/321fight/fight.wav" id="30_clbou"]
 [ext_resource type="Texture2D" uid="uid://whqqv2hbnttu" path="res://0_ui/play/fight_01.png" id="31_ce0f3"]
 [ext_resource type="Texture2D" uid="uid://b5trxcgxydq0n" path="res://0_ui/play/ui_fight_00.png" id="32_wjtb3"]
 [ext_resource type="Texture2D" uid="uid://bbpu4iv0y77ge" path="res://0_ui/play/fight_02.png" id="33_1w13t"]
@@ -198,7 +199,13 @@ _data = {
 &"fight": SubResource("Animation_vyuwx")
 }
 
-[node name="Play" type="Node3D" unique_id=1096217038]
+[node name="Play" type="Control" unique_id=535979483]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_7r1hd")
 
 [node name="Camera" type="Camera3D" parent="." unique_id=37424912]
@@ -207,15 +214,19 @@ transform = Transform3D(1, 0, 0, 0, 0.86602527, 0.49999994, 0, -0.49999994, 0.86
 attributes = SubResource("CameraAttributesPractical_s6xjt")
 current = true
 
+[node name="Bird" parent="." unique_id=500020896 instance=ExtResource("20_fnwh5")]
+unique_name_in_owner = true
+
 [node name="Player3d" parent="." unique_id=230906429 instance=ExtResource("3_wdj10")]
 unique_name_in_owner = true
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -35.31465, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -35.315, 0, 0)
 
 [node name="Player3d2" parent="." unique_id=1553129999 instance=ExtResource("3_wdj10")]
 unique_name_in_owner = true
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 29.93561, 0, 0)
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 29.936, 0, 0)
 
 [node name="SceneIsland" parent="." unique_id=902185827 instance=ExtResource("4_wy6u2")]
+metadata/_edit_lock_ = true
 
 [node name="AreaLeft" type="Area3D" parent="SceneIsland" unique_id=1957335737]
 unique_name_in_owner = true
@@ -249,11 +260,11 @@ shape = SubResource("BoxShape3D_0xlj3")
 
 [node name="MarkerSpawn1" type="Marker3D" parent="SceneIsland" unique_id=1325699079]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 30, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40, 40, 0)
 
 [node name="MarkerSpawn2" type="Marker3D" parent="SceneIsland" unique_id=707591175]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 30, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 40, 0)
 
 [node name="MarkerSpawn3" type="Marker3D" parent="SceneIsland" unique_id=1458156140]
 unique_name_in_owner = true
@@ -296,7 +307,7 @@ autoplay = true
 
 [node name="AudioStreamPlayerProvoke1" type="AudioStreamPlayer" parent="Start" unique_id=18705767]
 unique_name_in_owner = true
-stream = ExtResource("28_qn511")
+stream = ExtResource("29_n8sat")
 pitch_scale = 1.4
 
 [node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="Start" unique_id=1104534791]
@@ -323,60 +334,74 @@ stream = ExtResource("30_clbou")
 volume_db = 10.0
 pitch_scale = 1.5
 
-[node name="Control" type="Control" parent="Start" unique_id=2095906206]
-layout_mode = 3
+[node name="Control" type="Control" parent="." unique_id=2095906206]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Front" type="Sprite2D" parent="Start/Control" unique_id=1452453700]
+[node name="Front" type="TextureRect" parent="Control" unique_id=262519697]
 visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -1080.0
+offset_right = 960.0
+grow_horizontal = 2
+grow_vertical = 0
 texture = ExtResource("31_ce0f3")
-centered = false
 
-[node name="Score1" type="Sprite2D" parent="Start/Control/Front" unique_id=797327043]
+[node name="Score1" type="Sprite2D" parent="Control/Front" unique_id=797327043]
 unique_name_in_owner = true
 position = Vector2(770, 90)
 texture = ExtResource("32_wjtb3")
 
-[node name="Score2" type="Sprite2D" parent="Start/Control/Front" unique_id=1539498465]
+[node name="Score2" type="Sprite2D" parent="Control/Front" unique_id=1539498465]
 unique_name_in_owner = true
 position = Vector2(1124, 94)
 texture = ExtResource("32_wjtb3")
 
-[node name="AnimationPlayerUi" type="AnimationPlayer" parent="Start/Control" unique_id=428791990]
+[node name="AnimationPlayerUi" type="AnimationPlayer" parent="Control" unique_id=428791990]
 libraries/ = SubResource("AnimationLibrary_h1mr1")
 autoplay = &"idle"
 
-[node name="Pic" type="Sprite2D" parent="Start/Control" unique_id=1904076183]
+[node name="Pic" type="Sprite2D" parent="Control" unique_id=1904076183]
 centered = false
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Start/Control" unique_id=2080265626]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Control" unique_id=2080265626]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_5gtoq")
 
-[node name="Tip1" type="Sprite2D" parent="Start/Control" unique_id=1433306142]
+[node name="Tip1" type="Sprite2D" parent="Control" unique_id=1433306142]
 unique_name_in_owner = true
-position = Vector2(48.000008, 132)
+position = Vector2(48, 100)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("41_11wxt")
 centered = false
 
-[node name="Tip2" type="Sprite2D" parent="Start/Control" unique_id=1094241468]
+[node name="Tip2" type="Sprite2D" parent="Control" unique_id=1094241468]
 unique_name_in_owner = true
-position = Vector2(1161, 148)
+position = Vector2(1161, 100)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("42_1rq14")
 centered = false
+
+[node name="Pause" parent="." unique_id=2038635284 instance=ExtResource("20_7tptt")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
 
 [node name="TimerEnd" type="Timer" parent="." unique_id=425475317]
 unique_name_in_owner = true
 one_shot = true
 
 [connection signal="body_entered" from="AreaDead" to="." method="_on_area_dead_body_entered"]
-[connection signal="timeout" from="TimerSeed" to="." method="_on_timer_seed_timeout"]
 [connection signal="finished" from="Start/AudioStreamPlayerProvoke2" to="." method="_on_audio_stream_player_provoke_2_finished"]
 [connection signal="finished" from="Start/AudioStreamPlayerProvoke1" to="." method="_on_audio_stream_player_provoke_1_finished"]
 [connection signal="finished" from="Start/AudioStreamPlayer3" to="." method="_on_audio_stream_player_3_finished"]

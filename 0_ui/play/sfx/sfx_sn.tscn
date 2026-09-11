@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bnxaknaoawead"]
+
+[ext_resource type="PackedScene" uid="uid://c33qy6gtn75br" path="res://addons/sound_engine/sfx.tscn" id="1_idbrp"]
+[ext_resource type="AudioStream" uid="uid://dpoqmjow2qq6u" path="res://0_ui/play/sfx/snsn.wav" id="2_jn6xs"]
+
+[node name="SfxSn" unique_id=880360423 instance=ExtResource("1_idbrp")]
+stream = ExtResource("2_jn6xs")
+pitch_scale = 1.1

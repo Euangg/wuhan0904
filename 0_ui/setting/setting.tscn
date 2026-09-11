@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://bl2anydle615e"]
+
+[ext_resource type="Texture2D" uid="uid://dgplt2fot8qwe" path="res://0_ui/setting/back_01.PNG" id="1_8i1n6"]
+[ext_resource type="Script" uid="uid://cuk4dxijqdd8a" path="res://0_ui/setting/setting.gd" id="1_ok326"]
+[ext_resource type="PackedScene" uid="uid://chh678dpu007h" path="res://0_ui/theme/back.tscn" id="1_px8tx"]
+[ext_resource type="Texture2D" uid="uid://dvfjctp4ityv5" path="res://0_ui/setting/sound_01.PNG" id="5_gig7o"]
+[ext_resource type="Texture2D" uid="uid://boii32pf1imbb" path="res://0_ui/setting/fullscreen_01.PNG" id="6_gig7o"]
+[ext_resource type="Texture2D" uid="uid://d2ukwyr7n4qgk" path="res://0_ui/setting/carrot.tres" id="6_u6gdr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_px8tx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ok326"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_60vas"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_02q0a"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gig7o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wgglm"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w005l"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_37syq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_u6gdr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kak07"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dvcgs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ofax"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0q7fs"]
+
+[node name="Setting" type="Control" unique_id=803654746]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ok326")
+
+[node name="Background" parent="." unique_id=1161635761 instance=ExtResource("1_px8tx")]
+layout_mode = 0
+
+[node name="Back" type="Sprite2D" parent="." unique_id=691086657]
+unique_name_in_owner = true
+texture = ExtResource("1_8i1n6")
+centered = false
+
+[node name="ButtonBack" type="Button" parent="Back" unique_id=1300157759]
+offset_left = 930.00006
+offset_top = 750.0
+offset_right = 1642.0
+offset_bottom = 900.0
+rotation = 0.23911011
+theme_override_styles/normal = SubResource("StyleBoxEmpty_px8tx")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ok326")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_60vas")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_02q0a")
+
+[node name="Sound" type="Sprite2D" parent="." unique_id=1519913683]
+unique_name_in_owner = true
+texture = ExtResource("5_gig7o")
+centered = false
+
+[node name="ButtonSound" type="Button" parent="Sound" unique_id=983144957]
+offset_left = 1008.00006
+offset_top = 429.00003
+offset_right = 1720.0
+offset_bottom = 579.0
+rotation = 0.23911011
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gig7o")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_wgglm")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_w005l")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_37syq")
+
+[node name="HSliderSound" type="HSlider" parent="Sound" unique_id=1433391234]
+unique_name_in_owner = true
+offset_left = 1336.0001
+offset_top = 555.00006
+offset_right = 1647.5094
+offset_bottom = 658.00006
+rotation = 0.23233896
+theme_override_constants/center_grabber = -1
+theme_override_constants/grabber_offset = -16
+theme_override_icons/grabber = ExtResource("6_u6gdr")
+theme_override_icons/grabber_highlight = ExtResource("6_u6gdr")
+theme_override_icons/grabber_disabled = ExtResource("6_u6gdr")
+theme_override_styles/slider = SubResource("StyleBoxEmpty_u6gdr")
+max_value = 1.0
+step = 0.1
+
+[node name="Fullscreen" type="Sprite2D" parent="." unique_id=288327416]
+unique_name_in_owner = true
+texture = ExtResource("6_gig7o")
+centered = false
+
+[node name="ButtonFullScreen" type="Button" parent="Fullscreen" unique_id=321300382]
+offset_left = 964.0001
+offset_top = 587.00006
+offset_right = 1676.0
+offset_bottom = 737.00006
+rotation = 0.23911011
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kak07")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_dvcgs")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_2ofax")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_0q7fs")
+
+[connection signal="button_down" from="Back/ButtonBack" to="." method="_on_button_back_button_down"]
+[connection signal="mouse_entered" from="Back/ButtonBack" to="." method="_on_button_back_mouse_entered"]
+[connection signal="mouse_exited" from="Back/ButtonBack" to="." method="_on_button_back_mouse_exited"]
+[connection signal="mouse_entered" from="Sound/ButtonSound" to="." method="_on_button_sound_mouse_entered"]
+[connection signal="mouse_exited" from="Sound/ButtonSound" to="." method="_on_button_sound_mouse_exited"]
+[connection signal="mouse_entered" from="Sound/HSliderSound" to="." method="_on_button_sound_mouse_entered"]
+[connection signal="mouse_exited" from="Sound/HSliderSound" to="." method="_on_button_sound_mouse_exited"]
+[connection signal="value_changed" from="Sound/HSliderSound" to="." method="_on_h_slider_sound_value_changed"]
+[connection signal="button_down" from="Fullscreen/ButtonFullScreen" to="." method="_on_button_full_screen_button_down"]
+[connection signal="mouse_entered" from="Fullscreen/ButtonFullScreen" to="." method="_on_button_full_screen_mouse_entered"]
+[connection signal="mouse_exited" from="Fullscreen/ButtonFullScreen" to="." method="_on_button_full_screen_mouse_exited"]

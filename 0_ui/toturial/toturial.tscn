@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://cbfqb5jnfdqe6"]
+
+[ext_resource type="Script" uid="uid://c8yxun3a8t0he" path="res://0_ui/toturial/toturial.gd" id="1_erayy"]
+[ext_resource type="Texture2D" uid="uid://b8lio5ht0fqsp" path="res://0_ui/toturial/tips_01.png" id="1_utw6x"]
+[ext_resource type="Texture2D" uid="uid://bhvx5153hc8uo" path="res://0_ui/toturial/屏幕截图(2331).png" id="3_ixtlq"]
+[ext_resource type="Texture2D" uid="uid://d4c34jukkdym7" path="res://0_ui/toturial/TipStart.png" id="4_utd3k"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_m5684"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_erayy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ixtlq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_utd3k"]
+
+[sub_resource type="Animation" id="Animation_utd3k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TipStart:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_m5684"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TipStart:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.6, 0.6)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_a18xn"]
+_data = {
+&"RESET": SubResource("Animation_utd3k"),
+&"idle": SubResource("Animation_m5684")
+}
+
+[node name="Toturial" type="Control" unique_id=918185606]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_erayy")
+
+[node name="屏幕截图(2331)" type="Sprite2D" parent="." unique_id=2040378998]
+texture = ExtResource("3_ixtlq")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="屏幕截图(2331)" unique_id=137001795]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.039215688, 0.039215688, 0.039215688, 0.9411765)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=491532988]
+unique_name_in_owner = true
+texture = ExtResource("1_utw6x")
+centered = false
+
+[node name="ButtonConfirm" type="Button" parent="." unique_id=1950548885]
+layout_mode = 0
+offset_left = 1538.0
+offset_top = 893.0
+offset_right = 1919.0
+offset_bottom = 1080.0
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxEmpty_m5684")
+
+[node name="ButtonRule" type="Button" parent="." unique_id=637783055]
+layout_mode = 0
+offset_left = 569.0
+offset_top = 858.0
+offset_right = 774.0
+offset_bottom = 1032.0
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxEmpty_erayy")
+
+[node name="ButtonKeyboard" type="Button" parent="." unique_id=931463817]
+layout_mode = 0
+offset_left = 837.0
+offset_top = 877.0
+offset_right = 1097.0
+offset_bottom = 1005.0
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxEmpty_ixtlq")
+
+[node name="ButtonContrller" type="Button" parent="." unique_id=536912851]
+layout_mode = 0
+offset_left = 1182.0
+offset_top = 857.0
+offset_right = 1384.0
+offset_bottom = 1031.0
+theme_override_font_sizes/font_size = 150
+theme_override_styles/normal = SubResource("StyleBoxEmpty_utd3k")
+
+[node name="TipStart" type="Sprite2D" parent="." unique_id=113149945]
+position = Vector2(1729, 990)
+texture = ExtResource("4_utd3k")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=277061495]
+libraries/ = SubResource("AnimationLibrary_a18xn")
+autoplay = &"idle"
+
+[connection signal="button_down" from="ButtonConfirm" to="." method="_on_button_confirm_button_down"]
+[connection signal="button_down" from="ButtonRule" to="." method="_on_button_rule_button_down"]
+[connection signal="button_down" from="ButtonKeyboard" to="." method="_on_button_keyboard_button_down"]
+[connection signal="button_down" from="ButtonContrller" to="." method="_on_button_contrller_button_down"]

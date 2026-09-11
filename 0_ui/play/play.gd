@@ -1,4 +1,4 @@
-extends Node3D
+extends Control
 const SEED = preload("uid://ceogoh04styvy")
 
 var score_p1:int=0
@@ -58,7 +58,7 @@ func _ready() -> void:
 	
 	
 	SoundEngine.set_bgm(preload("uid://dl5e35grgprfj"))
-	%TimerSeed.start()
+	%Bird.reach_target.connect(bird_reach_target)
 
 var camera_target:Vector3
 func camera_chase():
@@ -66,7 +66,12 @@ func camera_chase():
 	camera_target.y=%Camera.position.y
 	var all_scale=(%Player3d.scale.x+%Player3d2.scale.x)
 	camera_target.z=max(%Player3d.position.z,%Player3d2.position.z)+40+5*all_scale
-	
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		get_tree().paused=true
+		%Pause.activate()
+	accept_event()
 func _physics_process(delta: float) -> void:
 	camera_chase()
 	%Camera.position=%Camera.position.lerp(camera_target,0.08)
@@ -104,8 +109,16 @@ func _on_area_dead_body_entered(body: Node3D) -> void:
 				SoundEngine.play_sfx_sfx(preload("uid://da2jyysvbo2lu").instantiate())
 				Global.winner=1 if score_p1>score_p2 else 2
 				%TimerEnd.start()
+			else:
+				SoundEngine.play_sfx_sfx(preload("uid://bnxaknaoawead").instantiate())
 	else:body.queue_free()
 
+func bird_reach_target():
+	if score_p1==score_p2:
+		%Bird.target_pos=Vector2(randf_range(-100,100),randf_range(-60,60))
+	else:
+		var weak_player:Player3D=%Player3d if score_p1<score_p2 else %Player3d2
+		%Bird.target_pos=Vector2(weak_player.position.x,weak_player.position.z)
 func _on_timer_seed_timeout() -> void:
 	var seed:CharacterBody3D=SEED.instantiate()
 	seed.position=Vector3(randf_range(-110,110),60,randf_range(-70,70))
@@ -127,6 +140,7 @@ func _on_audio_stream_player_1_finished() -> void:
 	%AudioStreamPlayerF.play()
 	%Player3d.set_process_input(true)
 	%Player3d2.set_process_input(true)
+	%Bird.start_shit()
 	%AnimationPlayer.play("fight")
 	%Tip1.hide()
 	%Tip2.hide()

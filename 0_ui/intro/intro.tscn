@@ -58,7 +58,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_v0ome"]
@@ -161,7 +161,6 @@ autoplay = &"idle"
 
 [node name="Cg" type="Sprite2D" parent="." unique_id=1383631729]
 unique_name_in_owner = true
-modulate = Color(1, 1, 1, 0)
 texture = ExtResource("3_h5al1")
 centered = false
 
@@ -171,21 +170,28 @@ libraries/ = SubResource("AnimationLibrary_p7dr6")
 
 [node name="Dialogue" type="Sprite2D" parent="." unique_id=467577398]
 unique_name_in_owner = true
-visible = false
 texture = ExtResource("5_jbv6a")
 centered = false
 
 [node name="Label" type="Label" parent="Dialogue" unique_id=253909001]
-offset_left = 348.0
-offset_top = 768.0
-offset_right = 1604.0
-offset_bottom = 986.0
+unique_name_in_owner = true
+custom_maximum_size = Vector2(1185, 812)
+offset_left = 426.0
+offset_top = 812.0
+offset_right = 1611.0
+offset_bottom = 960.0
+theme_override_colors/font_outline_color = Color(0.4862745, 0.16078432, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 60
+text = "撒大苏打撒旦"
+autowrap_mode = 1
 
 [node name="ApDialogue" type="AnimationPlayer" parent="." unique_id=959421133]
 libraries/ = SubResource("AnimationLibrary_nd6hj")
 autoplay = &"idle"
 
 [node name="Timer" type="Timer" parent="." unique_id=1432062573]
+wait_time = 0.1
 one_shot = true
 autostart = true
 

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://c1r7d8m2tnre5"]
+
+[ext_resource type="PackedScene" uid="uid://c33qy6gtn75br" path="res://addons/sound_engine/sfx.tscn" id="1_x0qhp"]
+[ext_resource type="AudioStream" uid="uid://b7lwmoirem22w" path="res://0_ui/toturial/tip_keyboard.wav" id="2_xlm0w"]
+
+[node name="SfxKeyboard" unique_id=880360423 instance=ExtResource("1_x0qhp")]
+stream = ExtResource("2_xlm0w")
+pitch_scale = 1.3

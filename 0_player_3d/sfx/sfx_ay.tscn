@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://b4gy61odmwyco"]
+
+[ext_resource type="PackedScene" uid="uid://c33qy6gtn75br" path="res://addons/sound_engine/sfx.tscn" id="1_bn777"]
+[ext_resource type="AudioStream" uid="uid://cd02m2j7uau58" path="res://0_player_3d/sfx/attack_01.wav" id="2_bn777"]
+
+[node name="SfxAy" unique_id=880360423 instance=ExtResource("1_bn777")]
+stream = ExtResource("2_bn777")

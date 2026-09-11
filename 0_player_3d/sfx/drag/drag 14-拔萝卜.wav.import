@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://6aeab5r4d5su"
+path="res://.godot/imported/drag 14-拔萝卜.wav-615083a299b49fbc2a3c1aee87435f98.sample"
+
+[deps]
+
+source_file="res://0_player_3d/sfx/drag/drag 14-拔萝卜.wav"
+dest_files=["res://.godot/imported/drag 14-拔萝卜.wav-615083a299b49fbc2a3c1aee87435f98.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

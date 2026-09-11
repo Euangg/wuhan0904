@@ -3,6 +3,9 @@ extends CharacterBody3D
 
 const SFX_BLOCKED = preload("uid://ceiip8nwfy1jf")
 const SFX_EAT = preload("uid://dyfhyybdodv2u")
+const SFX_WC = preload("uid://dxjxs037thb3i")
+const STREAMS_ATK=[preload("uid://fugamiidplfl"),preload("uid://c5ffpkknvwt4y")]
+const SFXS_HURT=[preload("uid://b4gy61odmwyco"),preload("uid://bvpygussblv3o")]
 const SFXS_DRAG = [preload("uid://bhqtv3ldvcu8d"), preload("uid://i3vm7lr6toot")
 , preload("uid://bu28vq5i8wj1p")
 ,preload("uid://cns1p1jil052v")
@@ -62,7 +65,7 @@ var add_scale:float=0
 var time_shit_on_carrot:float=0
 
 func _ready() -> void:body_scale=scale.x
-const SFX_WC = preload("uid://dxjxs037thb3i")
+
 var input:Vector2=Vector2.ZERO
 func _input(event: InputEvent) -> void:
 	input=Input.get_vector(action_left,action_right,action_up,action_down)
@@ -199,11 +202,11 @@ func _physics_process(delta: float) -> void:
 				SoundEngine.play_sfx(preload("uid://b513b80t6cnf"))
 			State.ATTACK:
 				%AnimationPlayer.play("attack")
-				SoundEngine.play_sfx_sfx(SFX_WC.instantiate())
+				SoundEngine.play_sfx(STREAMS_ATK.pick_random())
 			State.HURT:
 				%AnimationPlayer.stop()
 				%SpriteBody.frame=16
-				SoundEngine.play_sfx_sfx(preload("uid://bvpygussblv3o").instantiate())
+				SoundEngine.play_sfx_sfx(SFXS_HURT.pick_random().instantiate())
 				is_hurt=false
 				num_hurt+=1
 			State.STUN:
@@ -232,21 +235,23 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed(action_carrot):
 				SoundEngine.play_sfx(SFXS_DRAG.pick_random(),5)
 				%AnimationPlayer.play("drag_1")
-				if interact_carrot.be_dragged(scale.x*2):
-					SoundEngine.play_sfx(preload("uid://cm3jw78ts60u6"))
-					%BoxCarrot.scale=Vector3.ONE*sqrt(interact_carrot.scale.x)
-					has_carrot=true
-					if interact_carrot.scale.x>=1:%SpriteCarrot.frame=3
-					elif interact_carrot.scale.x>=0.5:%SpriteCarrot.frame=1
-					else:%SpriteCarrot.frame=0
-					
-					interact_carrot.queue_free()
-					interact_carrot=null
+				if interact_carrot.be_dragged(body_scale*6):
+					if not interact_carrot.is_queued_for_deletion():
+						SoundEngine.play_sfx(preload("uid://cm3jw78ts60u6"))
+						%BoxCarrot.scale=Vector3.ONE*sqrt(interact_carrot.scale.x)
+						has_carrot=true
+						if interact_carrot.scale.x>=1:%SpriteCarrot.frame=3
+						elif interact_carrot.scale.x>=0.5:%SpriteCarrot.frame=1
+						else:%SpriteCarrot.frame=0
+						
+						interact_carrot.queue_free()
+						interact_carrot=null
 		State.SHIT:
 			velocity.x=0
 			velocity.z=0
 			if target_carrot:
-				target_carrot.time+=3*delta
+				target_carrot.grow(10*delta*body_scale)
+				target_carrot.shitted=true
 				time_shit_on_carrot+=delta
 				if time_shit_on_carrot>1:
 					time_shit_on_carrot-=20
@@ -277,7 +282,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x=0
 			velocity.z=0
 			
-	velocity.y-=1000*delta
+	velocity.y-=200*delta
 	move_and_slide()
 
 const SFX_HIT = preload("uid://b5cffanbxmack")

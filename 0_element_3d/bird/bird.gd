@@ -14,20 +14,21 @@ signal reach_target
 
 @export_group("fly")
 @export var fly_up_speed:float=40
-@export var fly_h_speed:float=40
+@export var fly_h_speed:float=10
+@export var fly_height:float=15
 
 var target_pos=Vector2.ZERO
 func flap():
 	velocity.y+=fly_up_speed
 func _ready() -> void:
 	reach_target.emit()
-	target_pos=Vector2(20,10)
 func _physics_process(delta: float) -> void:
-	var is_flap=(position.y<10)
+	var is_flap=(position.y<fly_height)
 	var current_pos=Vector2(position.x,position.z)
+	var input=current_pos.direction_to(target_pos)
 	if current_pos.distance_squared_to(target_pos)<100:
 		reach_target.emit()
-	var input=current_pos.direction_to(target_pos)
+		input=Vector2.ZERO
 	
 	var next_state=current_state
 	match current_state:
@@ -51,6 +52,8 @@ func _physics_process(delta: float) -> void:
 	velocity*=1/(1+0.1*velocity.length()*delta)
 	move_and_slide()
 
+func start_shit():
+	%TimerShit.start()
 const SEED = preload("uid://ceogoh04styvy")
 func _on_timer_seed_timeout() -> void:
 	var seed:CharacterBody3D=SEED.instantiate()

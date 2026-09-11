@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://chh678dpu007h"]
+
+[ext_resource type="Texture2D" uid="uid://b7r3ruracx8x7" path="res://0_ui/theme/SelectBack_02.png" id="1_eeo1x"]
+[ext_resource type="Texture2D" uid="uid://cw81i7mtp0ycb" path="res://0_ui/theme/SelectBack_01.png" id="2_xao0y"]
+
+[sub_resource type="Animation" id="Animation_tmm7h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/Back:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_xao0y")]
+}
+
+[sub_resource type="Animation" id="Animation_i2imb"]
+resource_name = "idle"
+length = 0.2
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/Back:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("2_xao0y"), ExtResource("1_eeo1x")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2dvm"]
+_data = {
+&"RESET": SubResource("Animation_tmm7h"),
+&"idle": SubResource("Animation_i2imb")
+}
+
+[node name="Background" type="Control" unique_id=1161635761]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Back" type="Sprite2D" parent="." unique_id=1117596453]
+texture = ExtResource("2_xao0y")
+centered = false
+
+[node name="ApBack" type="AnimationPlayer" parent="." unique_id=1580624295]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_q2dvm")
+autoplay = &"idle"

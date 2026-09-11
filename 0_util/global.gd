@@ -3,6 +3,10 @@ const INTRO = ("uid://cpcn6fy085di2")
 const THEME = ("uid://gkabh7icruyr")
 const PLAY =("uid://d3tgi0aom5546")
 const END=("uid://dxd8a0pvybbu")
+const TOTURIAL = ("uid://cbfqb5jnfdqe6")
+const STAFF = ("uid://cmenjbnknaqia")
+const SETTING = ("uid://bl2anydle615e")
+
 
 var controller=1
 

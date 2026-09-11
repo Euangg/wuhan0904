@@ -1,7 +1,0 @@
-[gd_scene format=3 uid="uid://da2jyysvbo2lu"]
-
-[ext_resource type="PackedScene" uid="uid://c33qy6gtn75br" path="res://addons/sound_engine/sfx.tscn" id="1_038yn"]
-[ext_resource type="AudioStream" uid="uid://6oj5pfxxa76o" path="res://0_sound/sfx_end.wav" id="2_038yn"]
-
-[node name="SfxWc" unique_id=880360423 instance=ExtResource("1_038yn")]
-stream = ExtResource("2_038yn")

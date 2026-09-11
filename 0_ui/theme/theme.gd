@@ -29,7 +29,7 @@ func _on_area_exit_mouse_exited() -> void:%Exit.texture=EXIT_01
 
 
 func _on_button_start_button_down() -> void:
-	SceneEngine.switch(load(Global.PLAY))
+	SceneEngine.switch(load(Global.TOTURIAL))
 
 
 func _on_button_story_button_down() -> void:
@@ -37,8 +37,13 @@ func _on_button_story_button_down() -> void:
 
 
 func _on_button_setting_button_down() -> void:
-	pass # Replace with function body.
+	SceneEngine.switch(load(Global.SETTING))
 
 
 func _on_button_exit_button_down() -> void:
 	get_tree().quit()
+
+
+func _on_button_mouse_entered() -> void:%TagDeveloper.show()
+func _on_button_mouse_exited() -> void:%TagDeveloper.hide()
+func _on_button_button_down() -> void:SceneEngine.switch(load(Global.STAFF))

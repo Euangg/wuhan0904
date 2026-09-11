@@ -1,52 +1,15 @@
 [gd_scene format=3 uid="uid://gkabh7icruyr"]
 
 [ext_resource type="Script" uid="uid://cex0ikwk13ecl" path="res://0_ui/theme/theme.gd" id="1_4euet"]
-[ext_resource type="Texture2D" uid="uid://cw81i7mtp0ycb" path="res://0_ui/theme/SelectBack_01.png" id="2_jokyh"]
-[ext_resource type="Texture2D" uid="uid://b7r3ruracx8x7" path="res://0_ui/theme/SelectBack_02.png" id="3_lgvji"]
+[ext_resource type="PackedScene" uid="uid://chh678dpu007h" path="res://0_ui/theme/back.tscn" id="2_qoeny"]
 [ext_resource type="Texture2D" uid="uid://trb2akrd1w4o" path="res://0_ui/theme/Start_01.png" id="4_lgvji"]
 [ext_resource type="Texture2D" uid="uid://c7n4b0qc788ac" path="res://0_ui/theme/Story_01.png" id="5_dv3mi"]
 [ext_resource type="Texture2D" uid="uid://cm0jhynts6bxi" path="res://0_ui/theme/Setting_01.png" id="6_w0df1"]
 [ext_resource type="Texture2D" uid="uid://c7w7sjsysm4bt" path="res://0_ui/theme/Exit_01.png" id="7_qoeny"]
 [ext_resource type="Texture2D" uid="uid://f2a1tavokjcf" path="res://0_ui/theme/logo.png" id="8_uupoo"]
-
-[sub_resource type="Animation" id="Animation_tmm7h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Back:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("2_jokyh")]
-}
-
-[sub_resource type="Animation" id="Animation_i2imb"]
-resource_name = "idle"
-length = 0.2
-loop_mode = 1
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Back:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.10000001),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [ExtResource("2_jokyh"), ExtResource("3_lgvji")]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_q2dvm"]
-_data = {
-&"RESET": SubResource("Animation_tmm7h"),
-&"idle": SubResource("Animation_i2imb")
-}
+[ext_resource type="Texture2D" uid="uid://cec3nbtijf5dd" path="res://0_ui/theme/developer_01.png" id="9_w0df1"]
+[ext_resource type="Texture2D" uid="uid://dnwot2eisjl1a" path="res://0_ui/theme/developer_02.png" id="10_qoeny"]
+[ext_resource type="Texture2D" uid="uid://c4v6al2654yoi" path="res://0_ui/theme/developer_03.png" id="10_uupoo"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_dv3mi"]
 
@@ -55,6 +18,55 @@ _data = {
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qoeny"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uupoo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_31lyg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7chvn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oonsi"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_x6t5m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fiwcc"]
+
+[sub_resource type="Animation" id="Animation_uupoo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Developer:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_w0df1")]
+}
+
+[sub_resource type="Animation" id="Animation_fiwcc"]
+resource_name = "idle"
+length = 0.18
+loop_mode = 1
+step = 0.09
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Developer:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.09090909),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("9_w0df1"), ExtResource("10_qoeny")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_aoqvx"]
+_data = {
+&"RESET": SubResource("Animation_uupoo"),
+&"idle": SubResource("Animation_fiwcc")
+}
 
 [node name="Theme" type="Control" unique_id=1439887370]
 layout_mode = 3
@@ -66,13 +78,8 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_4euet")
 
-[node name="Back" type="Sprite2D" parent="." unique_id=1385136211]
-texture = ExtResource("2_jokyh")
-centered = false
-
-[node name="ApBack" type="AnimationPlayer" parent="." unique_id=1898550561]
-libraries/ = SubResource("AnimationLibrary_q2dvm")
-autoplay = &"idle"
+[node name="Background" parent="." unique_id=1161635761 instance=ExtResource("2_qoeny")]
+layout_mode = 0
 
 [node name="Start" type="Sprite2D" parent="." unique_id=1931934337]
 unique_name_in_owner = true
@@ -153,7 +160,32 @@ offset_top = -18.0
 offset_right = 40.0
 grow_vertical = 0
 theme_override_font_sizes/font_size = 30
-text = "v0.1"
+text = "v0.2"
+
+[node name="Developer" type="Sprite2D" parent="." unique_id=1043708591]
+texture = ExtResource("9_w0df1")
+centered = false
+
+[node name="Button" type="Button" parent="Developer" unique_id=1027585314]
+offset_left = 1657.0
+offset_top = 720.0
+offset_right = 1919.0
+offset_bottom = 1079.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_31lyg")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_7chvn")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_oonsi")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_x6t5m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_fiwcc")
+
+[node name="TagDeveloper" type="Sprite2D" parent="Developer" unique_id=1876285969]
+unique_name_in_owner = true
+visible = false
+texture = ExtResource("10_uupoo")
+centered = false
+
+[node name="ApRabbit" type="AnimationPlayer" parent="." unique_id=2093392806]
+libraries/ = SubResource("AnimationLibrary_aoqvx")
+autoplay = &"idle"
 
 [connection signal="button_down" from="Start/ButtonStart" to="." method="_on_button_start_button_down"]
 [connection signal="mouse_entered" from="Start/ButtonStart" to="." method="_on_area_start_mouse_entered"]
@@ -167,3 +199,6 @@ text = "v0.1"
 [connection signal="button_down" from="Exit/ButtonExit" to="." method="_on_button_exit_button_down"]
 [connection signal="mouse_entered" from="Exit/ButtonExit" to="." method="_on_area_exit_mouse_entered"]
 [connection signal="mouse_exited" from="Exit/ButtonExit" to="." method="_on_area_exit_mouse_exited"]
+[connection signal="button_down" from="Developer/Button" to="." method="_on_button_button_down"]
+[connection signal="mouse_entered" from="Developer/Button" to="." method="_on_button_mouse_entered"]
+[connection signal="mouse_exited" from="Developer/Button" to="." method="_on_button_mouse_exited"]

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://calumh6ckfunj"]
+
+[ext_resource type="PackedScene" uid="uid://c33qy6gtn75br" path="res://addons/sound_engine/sfx.tscn" id="1_t2enn"]
+[ext_resource type="AudioStream" uid="uid://bc55ghlxt6onb" path="res://0_ui/toturial/tip.wav" id="2_vudwk"]
+
+[node name="SfxTip" unique_id=880360423 instance=ExtResource("1_t2enn")]
+stream = ExtResource("2_vudwk")
+pitch_scale = 1.4
